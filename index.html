@@ -5,10 +5,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>PNG Icon Color Changer</title>
+    
     <meta name="description" content="Change any png icon color for free!" />
     <meta name="keywords" content="png icon color changer, png, icon, color, changer" />
     <meta name="robots" content="index, follow" />
     <meta name="language" content="en" />
+    
     <style>
       body {
         font-family: Arial, sans-serif;
@@ -73,6 +75,17 @@
         gap: 1rem;
       }
     </style>
+
+        <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "url": "https://senex309.github.io/png-color-changer/",
+        "name": "PNG Icon Color Changer",
+        "description": "Change any png icon color for free!",
+      }
+    </script>
+    
   </head>
   <body>
     <div class="card">
@@ -82,6 +95,9 @@
         color, then download.
       </p>
 
+      <label for="fileInput">PNG file</label>
+      <input id="fileInput" type="file" accept="image/png" />
+
       <div class="row">
         <div>
           <label for="colorInput">Color</label>
@@ -89,9 +105,6 @@
         </div>
         <button id="applyBtn" disabled>Apply color</button>
       </div>
-
-      <label for="fileInput">PNG file</label>
-      <input id="fileInput" type="file" accept="image/png" />
 
       <canvas id="canvas" style="display: none"></canvas>
       <img id="preview" alt="Preview will appear here" />
