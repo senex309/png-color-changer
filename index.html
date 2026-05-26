@@ -43,35 +43,44 @@
     <meta name="language" content="en" />
     <link rel="canonical" href="https://pngcolorchanger.xyz/" />
 
-    <style>
+        <style>
+      * {
+        box-sizing: border-box;
+      }
+
       body {
         font-family: Arial, sans-serif;
         background: #111827;
         color: #e5e7eb;
         display: flex;
-        flex-direction: column;
+        justify-content: center;
         align-items: center;
-        gap: 1rem;
-        padding: 2rem;
+        min-height: 100vh;
+        margin: 0;
+        padding: 1rem;
       }
+
       .card {
         background: #1f2937;
         padding: 1.5rem;
         border-radius: 0.75rem;
-        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
-        max-width: 480px;
         width: 100%;
+        max-width: 480px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
       }
+
       label {
         display: block;
         margin-bottom: 0.5rem;
         font-size: 0.9rem;
         color: #9ca3af;
       }
+
       input[type="file"] {
         width: 100%;
         margin-bottom: 1rem;
       }
+
       input[type="color"] {
         width: 60px;
         height: 32px;
@@ -80,6 +89,7 @@
         background: transparent;
         cursor: pointer;
       }
+
       button {
         margin-top: 1rem;
         padding: 0.6rem 1.2rem;
@@ -90,24 +100,40 @@
         color: white;
         font-weight: 600;
       }
+
       button:disabled {
         background: #4b5563;
         cursor: not-allowed;
       }
-      canvas,
-      img {
+
+      img,
+      canvas {
         max-width: 100%;
-        margin-top: 1rem;
-        background: transparent;
+        height: auto;
       }
+
       .row {
         display: flex;
-        align-items: center;
-        justify-content: space-between;
         gap: 1rem;
+        flex-wrap: wrap;
       }
+
       .hidden {
         display: none;
+      }
+
+      @media (max-width: 600px) {
+        .card {
+          padding: 1rem;
+        }
+
+        h2 {
+          font-size: 1.2rem;
+        }
+
+        button {
+          width: 100%;
+        }
       }
     </style>
 
