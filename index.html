@@ -7,7 +7,6 @@
       async
       data-cfasync="false"
     ></script>
-
     <script type="text/javascript">
       (function (c, l, a, r, i, t, y) {
         c[a] =
@@ -22,19 +21,16 @@
         y.parentNode.insertBefore(t, y);
       })(window, document, "clarity", "script", "wwo4d811ls");
     </script>
-
     <meta
       name="google-site-verification"
       content="xmDf3Pj1eRYQ7FG7riLps8c6K9hibt3ngxYli-pndRc"
     />
-
     <meta name="msvalidate.01" content="667810A5EB8AC456527BEC3710C0FC77" />
-
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>PNG Icon Color Changer</title>
-    <meta name="description" content="Change any png icon color for free!" />
+    <meta name="description" content="Change any PNG icon color for free!" />
     <meta
       name="keywords"
       content="png icon color changer, png, icon, color, changer"
@@ -42,12 +38,10 @@
     <meta name="robots" content="index, follow" />
     <meta name="language" content="en" />
     <link rel="canonical" href="https://pngcolorchanger.xyz/" />
-
     <style>
       * {
         box-sizing: border-box;
       }
-
       body {
         font-family: Arial, sans-serif;
         background: #111827;
@@ -59,7 +53,6 @@
         margin: 0;
         padding: 1rem;
       }
-
       .card {
         background: #1f2937;
         padding: 1.5rem;
@@ -68,19 +61,16 @@
         max-width: 480px;
         box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
       }
-
       label {
         display: block;
         margin-bottom: 0.5rem;
         font-size: 0.9rem;
         color: #9ca3af;
       }
-
       input[type="file"] {
         width: 100%;
         margin-bottom: 1rem;
       }
-
       input[type="color"] {
         width: 60px;
         height: 32px;
@@ -89,7 +79,6 @@
         background: transparent;
         cursor: pointer;
       }
-
       button {
         margin-top: 1rem;
         padding: 0.6rem 1.2rem;
@@ -100,43 +89,35 @@
         color: white;
         font-weight: 600;
       }
-
       button:disabled {
         background: #4b5563;
         cursor: not-allowed;
       }
-
       img,
       canvas {
         max-width: 100%;
         height: auto;
       }
-
       .row {
         display: flex;
         gap: 1rem;
         flex-wrap: wrap;
       }
-
       .hidden {
         display: none;
       }
-
       @media (max-width: 600px) {
         .card {
           padding: 1rem;
         }
-
         h2 {
           font-size: 1.2rem;
         }
-
         button {
           width: 100%;
         }
       }
     </style>
-
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
@@ -151,14 +132,9 @@
   <body>
     <div class="card">
       <h2>PNG Icon Color Changer</h2>
-      <p style="font-size: 0.9rem; color: #9ca3af">
-        Upload a PNG (ideally a white or solid icon with transparency), pick a
-        color, then download.
-      </p>
-
+      <p style="font-size: 0.9rem; color: #9ca3af">Upload a PNG (ideally a white or solid icon with transparency), pick a color, then download.</p>
       <label for="fileInput">PNG file</label>
       <input id="fileInput" type="file" accept="image/png" />
-
       <div class="row">
         <div>
           <label for="colorInput">Color</label>
@@ -166,13 +142,10 @@
         </div>
         <button id="applyBtn" disabled>Apply color</button>
       </div>
-
       <canvas id="canvas" style="display: none"></canvas>
       <img id="preview" class="hidden" alt="Preview will appear here" />
-
       <button id="downloadBtn" disabled>Download PNG</button>
     </div>
-
     <script>
       const fileInput = document.getElementById("fileInput");
       const colorInput = document.getElementById("colorInput");
@@ -183,14 +156,11 @@
       const preview = document.getElementById("preview");
       preview.src = canvas.toDataURL("image/png");
       preview.classList.remove("hidden");
-
       let img = new Image();
       let imgLoaded = false;
-
       fileInput.addEventListener("change", () => {
         const file = fileInput.files[0];
         if (!file) return;
-
         const reader = new FileReader();
         reader.onload = (e) => {
           img = new Image();
@@ -208,7 +178,6 @@
         };
         reader.readAsDataURL(file);
       });
-
       function hexToRGBA(hex) {
         hex = hex.replace("#", "");
         if (hex.length === 3) {
@@ -225,17 +194,13 @@
           a: 255,
         };
       }
-
       applyBtn.addEventListener("click", () => {
         if (!imgLoaded) return;
-
         ctx.clearRect(0, 0, canvas.width, canvas.height);
         ctx.drawImage(img, 0, 0);
-
         const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
         const data = imageData.data;
         const { r: cr, g: cg, b: cb } = hexToRGBA(colorInput.value);
-
         for (let i = 0; i < data.length; i += 4) {
           const alpha = data[i + 3];
           if (alpha > 0) {
@@ -244,11 +209,9 @@
             data[i + 2] = cb;
           }
         }
-
         ctx.putImageData(imageData, 0, 0);
         preview.src = canvas.toDataURL("image/png");
       });
-
       downloadBtn.addEventListener("click", () => {
         if (!imgLoaded) return;
         const link = document.createElement("a");
