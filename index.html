@@ -54,7 +54,7 @@
       property="og:image"
       content="https://pngcolorchanger.xyz/og-image.png"
     />
-    <style>
+        <style>
       * {
         box-sizing: border-box;
       }
@@ -122,6 +122,37 @@
       .hidden {
         display: none;
       }
+      .preview-wrapper {
+        width: 100%;
+        min-height: 200px;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        margin-top: 1rem;
+        padding: 1rem;
+
+        border: 1px solid #374151;
+        border-radius: 0.75rem;
+
+        background: repeating-conic-gradient(#e5e7eb 0% 25%, #ffffff 0% 50%)
+          center / 16px 16px;
+
+        overflow: hidden;
+      }
+
+      #preview {
+        display: block;
+        max-width: 100%;
+        max-height: 300px;
+        width: auto;
+        height: auto;
+      }
+
+      .hidden {
+        display: none;
+      }
       @media (max-width: 600px) {
         .card {
           padding: 1rem;
@@ -130,7 +161,7 @@
           font-size: 1.2rem;
         }
         button {
-          width: 100%;
+          width: 45%;
         }
       }
     </style>
@@ -163,7 +194,9 @@
         <button id="applyBtn" disabled>Apply color</button>
       </div>
       <canvas id="canvas" style="display: none"></canvas>
-      <img id="preview" class="hidden" alt="Preview will appear here" />
+      <div class="preview-wrapper">
+        <img id="preview" class="hidden" alt="Preview will appear here" />
+      </div>
       <button id="downloadBtn" disabled>Download PNG</button>
     </div>
     <script>
